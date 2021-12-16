@@ -9,7 +9,7 @@ const Tire = forwardRef(
     useCylinder(
       () => ({
         //set mass of wheel
-        mass: 1,
+        mass: 5,
         //set type
         type: "Kinematic",
         //material name
