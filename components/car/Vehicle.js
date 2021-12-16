@@ -13,7 +13,7 @@ const Vehicle = () => {
   const back = -1.45;
   const steer = 0.75;
   const force = 2000;
-  const maxBrake = 1e5;
+  const maxBrake = 50;
 
   //Refs for the car
   const tire1 = useRef();
@@ -71,12 +71,27 @@ const Vehicle = () => {
   }));
 
   useFrame(() => {
-    const { forward, backward, left, right, brake, reset } = controls.current;
-    for (let e = 2; e < 4; e++)
+    const { forward, backward, left, right, brake, reset, boost } =
+      controls.current;
+    api.set;
+    // for (let e = 2; e < 4; e++) {
+    //   api.applyEngineForce(
+    //     forward || backward || boost
+    //       ? force * (forward && !backward ? -1 : 1)
+    //       : 0,
+
+    //     2
+    //   );
+    // }
+
+    for (let e = 2; e < 4; e++) {
       api.applyEngineForce(
-        forward || backward ? force * (forward && !backward ? -1 : 1) : 0,
+        forward ? force * -1 : backward ? force * 1 : boost ? force * -2 : 0,
+
         2
       );
+    }
+
     for (let s = 0; s < 2; s++)
       api.setSteeringValue(
         left || right ? steer * (left && !right ? 1 : -1) : 0,
@@ -86,8 +101,8 @@ const Vehicle = () => {
     if (reset) {
       body.current.api.position.set(0, 1.5, 0);
       body.current.api.velocity.set(0, 0, 0);
-      body.current.api.angularVelocity.set(0, 0.5, 0);
-      body.current.api.rotation.set(0, -Math.PI / 4, 0);
+      body.current.api.angularVelocity.set(0, 0, 0);
+      body.current.api.rotation.set(0, Math.PI * 2, 0);
     }
   });
 
