@@ -26,10 +26,10 @@ export default function ComponentName() {
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
       <Physics>
-        <Debug color="red">
-          <Vehicle />
-          <Plane />
-        </Debug>
+        {/* <Debug color="red"> */}
+        <Vehicle />
+        <Plane />
+        {/* </Debug> */}
       </Physics>
     </Canvas>
   );

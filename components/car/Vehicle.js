@@ -84,7 +84,7 @@ const Vehicle = () => {
       );
     for (let b = 2; b < 4; b++) api.setBrake(brake ? maxBrake : 0, b);
     if (reset) {
-      body.current.api.position.set(0, 0.5, 0);
+      body.current.api.position.set(0, 1.5, 0);
       body.current.api.velocity.set(0, 0, 0);
       body.current.api.angularVelocity.set(0, 0.5, 0);
       body.current.api.rotation.set(0, -Math.PI / 4, 0);
