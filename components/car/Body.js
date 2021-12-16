@@ -9,7 +9,7 @@ const Body = forwardRef(({ ...props }, ref) => {
     () => ({
       //set mass of car
       // type: "Kinematic",
-      mass: 500,
+      mass: 400,
       allowSleep: false,
       args: [2, 1, 5],
       ...props,
